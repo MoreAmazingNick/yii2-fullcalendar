@@ -17,6 +17,6 @@ class PrintAsset extends \yii\web\AssetBundle
 		'media' => 'print',
 	];
 	/** @var  string Bower path for the print settings */
-	public $sourcePath = '@npm/fullcalendar/dist';
+	public $sourcePath = '@bower/fullcalendar/dist';
 }
 

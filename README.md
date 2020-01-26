@@ -13,13 +13,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 To install, either run
 
 ```
-$ php composer.phar require artsoft/yii2-fullcalendar "V1.0.11"
+$ php composer.phar require artsoft/yii2-fullcalendar "*"
 ```
 
 or add
 
 ```
-"artsoft/yii2-fullcalendar": "V1.0.11"
+"artsoft/yii2-fullcalendar": "*"
 ```
 
 to the ```require``` section of your `composer.json` file.
