@@ -1,10 +1,10 @@
 <?php
 
-namespace edofre\fullcalendar;
+namespace artsoft\fullcalendar;
 
 /**
  * Class ThemeAsset
- * @package edofre\fullcalendar
+ * @package artsoft\fullcalendar
  */
 class ThemeAsset extends \yii\web\AssetBundle
 {
