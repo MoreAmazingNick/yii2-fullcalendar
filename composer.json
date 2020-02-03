@@ -1,12 +1,6 @@
 {
   "name": "artsoft/yii2-fullcalendar",
   "description": "Yii2 widget for fullcalendar",
-  "require": {
-    "php": ">=5.5.0",
-    "yiisoft/yii2": "*",
-    "yiisoft/yii2-jui": "*",
-    "bower-asset/fullcalendar" : "v1.9.4"
-  },
   "keywords": [
     "fullcalendar",
     "javascript",
@@ -22,14 +16,30 @@
       "email": "edofre@gmail.com"
     }
   ],
+  "require": {
+    "php": ">=5.5.0",
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-jui": "*",
+    "bower-asset/fullcalendar": "v1.9.4",
+    "bower-asset/fullcalendar-scheduler": "v3.9.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "*"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "repositories": {
+        "bower-asset/eve": {
+          "type": "bower-vcs",
+          "url": "https://github.com/adobe-webplatform/eve.git"
+        }
+      }
+    }
+  },
   "autoload": {
     "psr-4": {
       "artsoft\\fullcalendar\\": "src"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0.x-dev"
     }
   }
 }
