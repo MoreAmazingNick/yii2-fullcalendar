@@ -1,6 +1,6 @@
 <?php
 
-namespace artsoft\fullcalendar\models;
+namespace moreamazingnick\fullcalendar\models;
 
 /**
  * Class CalendarModel
