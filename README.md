@@ -13,7 +13,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 To install, either run
 
 ```
-$ php composer.phar require artsoft/yii2-fullcalendar "*"
+$ php composer.phar require moreamazingnick/yii2-fullcalendar "*"
 ```
 
 or add
