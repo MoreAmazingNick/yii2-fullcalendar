@@ -1,5 +1,5 @@
 {
-  "name": "artsoft/yii2-fullcalendar",
+  "name": "moreamazingnick/yii2-fullcalendar",
   "description": "Yii2 widget for fullcalendar",
   "keywords": [
     "fullcalendar",
@@ -7,20 +7,19 @@
     "event",
     "calendar"
   ],
-  "homepage": "https://github.com/artsoft/yii2-fullcalendar",
+  "homepage": "https://github.com/moreamazingnick/yii2-fullcalendar",
   "type": "yii2-extension",
   "license": "MIT",
   "authors": [
     {
-      "name": "Edo Freriks",
-      "email": "edofre@gmail.com"
+      "name": "Nicolas Schneider",
+      "email": "dev@nicolas-schneider.at"
     }
   ],
   "require": {
     "php": ">=5.5.0",
     "yiisoft/yii2": "*",
-    "yiisoft/yii2-jui": "*",
-    "bower-asset/fullcalendar": "v3.9.0"
+    "yiisoft/yii2-jui": "*"
   },
   "require-dev": {
     "codeception/codeception": "*"
@@ -38,7 +37,7 @@
   },
   "autoload": {
     "psr-4": {
-      "artsoft\\fullcalendar\\": "src"
+      "moreamazingnick\\fullcalendar\\": "src"
     }
   }
 }

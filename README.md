@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/artsoft/yii2-fullcalendar/v/stable)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
 [![Total Downloads](https://poser.pugx.org/artsoft/yii2-fullcalendar/downloads)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
 [![Latest Unstable Version](https://poser.pugx.org/artsoft/yii2-fullcalendar/v/unstable)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
-[![License](https://poser.pugx.org/artsoft/yii2-fullcalendar/license)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
+[![License](https://poser.pugx.org/artsoft/yii2-fullcalendar/license)](https://packagist.org/packages/moremamzingnick/yii2-fullcalendar)
 [![composer.lock](https://poser.pugx.org/artsoft/yii2-fullcalendar/composerlock)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
 
 ## Installation
@@ -19,7 +19,7 @@ $ php composer.phar require artsoft/yii2-fullcalendar "*"
 or add
 
 ```
-"artsoft/yii2-fullcalendar": "*"
+"moreamazingnick/yii2-fullcalendar": "*"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -28,7 +28,7 @@ to the ```require``` section of your `composer.json` file.
 
 ### Fullcalendar can be created as following, all options are optional, below is just an example of most options
 ```php
-<?= artsoft\fullcalendar\Fullcalendar::widget([
+<?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'options'       => [
             'id'       => 'calendar',
             'language' => 'nl',
@@ -109,7 +109,7 @@ to the ```require``` section of your `composer.json` file.
 
 #### Javascript array
 ```php
-<?= artsoft\fullcalendar\Fullcalendar::widget([
+<?= moreamazingnick\fullcalendar\Fullcalendar::widget([
        'events'        => new JsExpression('[
             {
                 "id":null,
@@ -218,7 +218,7 @@ to the ```require``` section of your `composer.json` file.
 
 #### JSON feed
 ```php
-<?= artsoft\fullcalendar\Fullcalendar::widget([
+<?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'events'        => Url::to(['calendar/events', 'id' => $uniqid]),
     ]);
 ?>
@@ -289,7 +289,7 @@ Your controller action would then return an array as following
 
 Callbacks have to be wrapped in a JsExpression() object. For example if you want to use the eventResize you would add the following to the fullcalendar clientOptions
 ```php
-<?= artsoft\fullcalendar\Fullcalendar::widget([
+<?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'clientOptions' => [
             'eventResize' => new JsExpression("
                 function(event, delta, revertFunc, jsEvent, ui, view) {

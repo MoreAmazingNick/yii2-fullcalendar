@@ -1,4 +1,10 @@
 The MIT License (MIT)
+See https://fullcalendar.io/license
+
+The MIT License (MIT)
+Copyright (c) 2021 Nicolas Schneider - for changes in moreamazingnick/full-calendar  
+
+The MIT License (MIT)
 
 Copyright (c) 2018 Edo Freriks
 
