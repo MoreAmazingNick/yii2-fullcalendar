@@ -1,10 +1,10 @@
 # Yii2 fullcalendar component
 
-[![Latest Stable Version](https://poser.pugx.org/artsoft/yii2-fullcalendar/v/stable)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
-[![Total Downloads](https://poser.pugx.org/artsoft/yii2-fullcalendar/downloads)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
-[![Latest Unstable Version](https://poser.pugx.org/artsoft/yii2-fullcalendar/v/unstable)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
-[![License](https://poser.pugx.org/artsoft/yii2-fullcalendar/license)](https://packagist.org/packages/moremamzingnick/yii2-fullcalendar)
-[![composer.lock](https://poser.pugx.org/artsoft/yii2-fullcalendar/composerlock)](https://packagist.org/packages/artsoft/yii2-fullcalendar)
+[![Latest Stable Version](https://poser.pugx.org/moreamazingnick/yii2-fullcalendar/v)](//packagist.org/packages/moreamazingnick/yii2-fullcalendar) 
+[![Total Downloads](https://poser.pugx.org/moreamazingnick/yii2-fullcalendar/downloads)](//packagist.org/packages/moreamazingnick/yii2-fullcalendar) 
+[![Latest Unstable Version](https://poser.pugx.org/moreamazingnick/yii2-fullcalendar/v/unstable)](//packagist.org/packages/moreamazingnick/yii2-fullcalendar) 
+[![License](https://poser.pugx.org/moreamazingnick/yii2-fullcalendar/license)](//packagist.org/packages/moreamazingnick/yii2-fullcalendar)
+
 
 ## Installation
 
