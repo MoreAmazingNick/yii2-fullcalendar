@@ -79,21 +79,21 @@ class Fullcalendar extends \yii\base\Widget
 	 * Load the options and start the widget
 	 */
 	public function run()
-	{
-		$this->echoLoadingTags();
+    {
+        $this->echoLoadingTags();
 
-		$assets = CoreAsset::register($this->view);
+        $assets = CoreAsset::register($this->view);
 
-		if ($this->theme === true) { // Register the theme
-			ThemeAsset::register($this->view);
-		}
+        if ($this->theme === true) { // Register the theme
+            ThemeAsset::register($this->view);
+        }
 
         if (isset($this->options['locale'])) {
             $assets->locale = $this->options['locale'];
         }
 
-		//$assets->googleCalendar = $this->googleCalendar;
-		$this->clientOptions['header'] = $this->header;
+        //$assets->googleCalendar = $this->googleCalendar;
+        $this->clientOptions['header'] = $this->header;
 
         $this->view->registerJs(implode("\n",
             [
@@ -114,7 +114,7 @@ class Fullcalendar extends \yii\base\Widget
             max-width: 1100px;
             margin: 0 auto;
           }");
-
+    }
 	/**
 	 * Echo the tags to show the loading state for the calendar
 	 */
