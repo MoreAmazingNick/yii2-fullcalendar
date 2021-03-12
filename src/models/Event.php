@@ -4,7 +4,7 @@ namespace artsoft\fullcalendar\models;
 
 /**
  * Class Event
- * @package artsoft\fullcalendar\models
+ * @package moreamazingnick\fullcalendar\models
  */
 class Event extends CalendarModel
 {

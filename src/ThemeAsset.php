@@ -1,10 +1,10 @@
 <?php
 
-namespace artsoft\fullcalendar;
+namespace moreamazingnick\fullcalendar;
 
 /**
  * Class ThemeAsset
- * @package artsoft\fullcalendar
+ * @package moreamazingnick\fullcalendar
  */
 class ThemeAsset extends \yii\web\AssetBundle
 {

@@ -4,7 +4,7 @@ namespace artsoft\fullcalendar\models;
 
 /**
  * Class CalendarModel
- * @package artsoft\fullcalendar\models
+ * @package moreamazingnick\fullcalendar\models
  */
 class CalendarModel extends \yii\base\Model
 {

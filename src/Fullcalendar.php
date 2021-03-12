@@ -1,10 +1,10 @@
 <?php
 
-namespace artsoft\fullcalendar;
+namespace moreamazingnick\fullcalendar;
 
 /**
  * Class Fullcalendar
- * @package artsoft\fullcalendar
+ * @package moreamazingnick\fullcalendar
  */
 class Fullcalendar extends \yii\base\Widget
 {
@@ -21,7 +21,7 @@ class Fullcalendar extends \yii\base\Widget
 	 */
 	public $events = [];
 	/** @var boolean  Determines whether or not to include the gcal.js */
-	public $googleCalendar = false;
+	//public $googleCalendar = false;
 	/**
 	 * @var array
 	 * Possible header keys
@@ -53,7 +53,7 @@ class Fullcalendar extends \yii\base\Widget
 	 */
 	public $options = [
 		'id'    => 'calendar',
-		'class' => 'fullcalendar',
+		//'class' => 'fullcalendar',
 	];
 	/**
 	 * @var boolean  Whether or not we need to include the ThemeAsset bundle
@@ -68,9 +68,9 @@ class Fullcalendar extends \yii\base\Widget
 		if (!isset($this->options['id'])) {
 			$this->options['id'] = $this->getId();
 		}
-		if (!isset($this->options['class'])) {
-			$this->options['class'] = 'fullcalendar';
-		}
+		//if (!isset($this->options['class'])) {
+			//$this->options['class'] = 'fullcalendar';
+		//}
 
 		parent::init();
 	}
@@ -88,17 +88,32 @@ class Fullcalendar extends \yii\base\Widget
 			ThemeAsset::register($this->view);
 		}
 
-		if (isset($this->options['language'])) {
-			$assets->language = $this->options['language'];
-		}
+        if (isset($this->options['locale'])) {
+            $assets->locale = $this->options['locale'];
+        }
 
-		$assets->googleCalendar = $this->googleCalendar;
+		//$assets->googleCalendar = $this->googleCalendar;
 		$this->clientOptions['header'] = $this->header;
 
-		$this->view->registerJs(implode("\n", [
-			"jQuery('#{$this->options['id']}').fullCalendar({$this->getClientOptions()});",
-		]), \yii\web\View::POS_READY);
-	}
+        $this->view->registerJs(implode("\n",
+            [
+                "var calendarEl = document.getElementById('calendar');",
+                "var calendar = new FullCalendar.Calendar(calendarEl, {$this->getClientOptions()});",
+                "calendar.render();"
+            ]
+        ), \yii\web\View::POS_READY);
+
+        $this->view->registerCss("    #fc-loading {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          }
+        
+          #calendar {
+            max-width: 1100px;
+            margin: 0 auto;
+          }");
 
 	/**
 	 * Echo the tags to show the loading state for the calendar
@@ -106,7 +121,7 @@ class Fullcalendar extends \yii\base\Widget
 	private function echoLoadingTags()
 	{
 		echo \yii\helpers\Html::beginTag('div', $this->options) . "\n";
-		echo \yii\helpers\Html::beginTag('div', ['class' => 'fc-loading', 'style' => 'display:none;']);
+        echo \yii\helpers\Html::beginTag('div', ['class' => 'fc-loading']);
 		echo \yii\helpers\Html::encode($this->loading);
 		echo \yii\helpers\Html::endTag('div') . "\n";
 		echo \yii\helpers\Html::endTag('div') . "\n";

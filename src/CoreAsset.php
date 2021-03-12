@@ -1,10 +1,10 @@
 <?php
 
-namespace artsoft\fullcalendar;
+namespace moreamazingnick\fullcalendar;
 
 /**
  * Class CoreAsset
- * @package artsoft\fullcalendar
+ * @package moreamazingnick\fullcalendar
  */
 class CoreAsset extends \yii\web\AssetBundle
 {
@@ -17,13 +17,12 @@ class CoreAsset extends \yii\web\AssetBundle
     public $autoGenerate = true;
     /** @var  array Required CSS files for the fullcalendar */
     public $css = [
-        'fullcalendar.css',
+        'fc-main.css',
     ];
     /** @var  array List of the dependencies this assets bundle requires */
     public $depends = [
         'yii\web\YiiAsset',
-        'artsoft\fullcalendar\MomentAsset',
-        'artsoft\fullcalendar\PrintAsset',
+        'moreamazingnick\fullcalendar\PrintAsset',
     ];
     /**
      * @var  boolean
@@ -33,27 +32,23 @@ class CoreAsset extends \yii\web\AssetBundle
     public $googleCalendar = false;
     /** @var  array Required JS files for the fullcalendar */
     public $js = [
-        'fullcalendar.js',
-        'locale-all.js',
+        'fc-main.js',
+        'fc-locales-all.js',
     ];
-    /** @var  string Language for the fullcalendar */
-    public $language = null;
+    public $sourcePath=__DIR__."/fullcalendar/lib/";
+    /** @var  string locale for the fullcalendar */
+    public $locale = null;
     /** @var  string Location of the fullcalendar distribution */
-    public $sourcePath = '@bower/fullcalendar/dist';
 
     /**
      * @inheritdoc
      */
     public function registerAssetFiles($view)
     {
-        $language = empty($this->language) ? \Yii::$app->language : $this->language;
-        if (file_exists($this->sourcePath . "/locale/$language.js")) {
-            $this->js[] = "locale/$language.js";
-        }
-
-        if ($this->googleCalendar) {
-            $this->js[] = 'gcal.js';
-        }
+        //$language = empty($this->locale) ? \Yii::$app->language : $this->locale;
+        //if (file_exists($this->sourcePath . "/locales/$language.js")) {
+        //    $this->js[] = "locales/$language.js";
+        // }
 
         // We need to return the parent implementation otherwise the scripts are not loaded
         return parent::registerAssetFiles($view);
