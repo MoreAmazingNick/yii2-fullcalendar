@@ -31,17 +31,23 @@ to the ```require``` section of your `composer.json` file.
 <?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'options'       => [
             'id'       => 'calendar',
-            'language' => 'nl',
         ],
         'clientOptions' => [
+            'locale' => 'de-AT',
+            'timeZone'=> 'local',
+
+            //'initialView'=>'timeGridWeek',
+            'firstDay' => 1,
             'weekNumbers' => true,
             'selectable'  => true,
-            'defaultView' => 'agendaWeek',
-            'eventResize' => new JsExpression("
-                function(event, delta, revertFunc, jsEvent, ui, view) {
-                    console.log(event);
-                }
-            "),
+            'eventTimeFormat' => [
+                'hour' => '2-digit',
+                'minute' => '2-digit',
+                'omitZeroMinute' => false,
+            ],
+            'editable' => true,
+
+   
 
         ],
         'events'        => Url::to(['calendar/events', 'id' => $uniqid]),
@@ -101,7 +107,7 @@ to the ```require``` section of your `composer.json` file.
     ];
 ?>
 
-<?= artsoft\fullcalendar\Fullcalendar::widget([
+<?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'events'        => $events
     ]);
 ?>
@@ -291,12 +297,98 @@ Callbacks have to be wrapped in a JsExpression() object. For example if you want
 ```php
 <?= moreamazingnick\fullcalendar\Fullcalendar::widget([
         'clientOptions' => [
-            'eventResize' => new JsExpression("
-                function(event, delta, revertFunc, jsEvent, ui, view) {
-                    console.log(event.id);
-                    console.log(delta);
+            //modify eventcontainer
+            'eventDidMount' => new JsExpression("
+                function (info) {
+                        let p = document.createElement('span');
+                        p.innerHTML='mytest';
+                        p.className = 'mytest';
+                        info.el.append(p)
                 }
             "),
+            'eventAdd'=>new JsExpression("
+                function (info) {
+                    console.log(info);
+                }
+            "),
+            'loading' =>new JsExpression("
+                function(bool) {
+                     if(bool){
+                          doSomething();
+                     }else{
+                         doSomethingElse();
+                     }
+                }
+            "),
+            // select an empty time slot and do something, like create an event
+            'select' => new JsExpression("
+                 function(arg) {
+                     Event = {
+                         title: 'Slot',
+                         start: arg.start,
+                         end: arg.end,
+                         editable: true,
+                         startEditable: true,
+                         durationEditable: true,
+                         allDay: arg.allDay,
+                     };
+                     postevent=JSON.parse(JSON.stringify({Event}));
+                         jQuery.ajax({
+                             type: 'POST',
+                             url: '" . Url::to(['yourcontroller/create-event']) . "',
+                             data: postevent,
+                             success: function(response){
+                                 console.log('create event select');
+                                 if(response){
+                                     calendar.addEvent(response)
+                                 }else{
+                                     alert('Could not create event!');
+                                 }
+                                 calendar.unselect() 
+                            },
+                            error: function(){
+                                alert('Could not create event!');
+                                calendar.unselect()
+                            },
+                        });
+                 }
+            "),
+            // moves event from one timeslot to another
+            'eventDrop' => new JsExpression(" 
+                function(eventDropInfo) {
+                Event=eventDropInfo.event;
+                postdata=JSON.parse(JSON.stringify({Event}));
+                jQuery.ajax({
+                    type: 'POST',
+                    url: '" . Url::to(['yourcontroller/update-event']) . "',
+                    data: postdata,
+                    success: function(response){
+                    console.log('create event drop');
+                        if(response){
+
+                        }else{
+                            alert('Could not alter event!');
+                            eventDropInfo.revert();
+                        }
+                        console.log(response); 
+                    },
+                    error: function(){
+                        alert('Could not alter event!')
+                        eventDropInfo.revert();
+                    },
+
+                });
+
+            }"),
+            // You can use the same implementation as in eventDrop
+            'eventResize' => new JsExpression("
+                function(eventResizeInfo) {
+            "),
+            //OnClick event, for example you can open a modal window or fetch more details
+            'eventClick'=>new JsExpression("
+                function (e) {
+                }
+            "),       
         ],
     ]);
 ?>
