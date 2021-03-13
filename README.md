@@ -73,7 +73,7 @@ to the ```require``` section of your `composer.json` file.
     ])
 
 ?>
-'id', 'groupId', 'display'
+
 ```
 ### Events can be added in three ways, PHP array, Javascript array or JSON feed
 
