@@ -14,6 +14,8 @@ class Event extends CalendarModel
 
     /** @var  string Uniquely identifies the given event. Different instances of repeating events should all have the same id. */
     public $id;
+    /** @var string Events that share a groupId will be dragged and resized together automatically. (c) https://fullcalendar.io/docs/event-object */
+    public $groupId;
     /** @var  string The text on an event's element */
     public $title;
     /** @var  boolean Whether an event occurs at a specific time-of-day. This property affects whether an event's time is shown. Also, in the agenda views, determines if it is displayed in the "all-day" section. */
@@ -48,6 +50,11 @@ class Event extends CalendarModel
     public $borderColor;
     /** @var  string Sets an event's text color just like the calendar-wide eventTextColor option. */
     public $textColor;
+    /** @var  array Can contain custom attributes for event*/
+    public $extendedProps;
+    /** @var string The rendering type of this event. Can be 'auto', 'block', 'list-item', 'background', 'inverse-background', or 'none'. See eventDisplay. (c) https://fullcalendar.io/docs/event-object */
+    public $display;
+
 
     /**
      * @return array
@@ -56,7 +63,7 @@ class Event extends CalendarModel
     {
         return [
             [['title', 'start'], 'required'],
-            [['id', 'end', 'url', 'className', 'rendering', 'constraint', 'source', 'color', 'backgroundColor', 'borderColor', 'textColor'], 'safe'],
+            [['id', 'groupId', 'display','extendedProps', 'end', 'url', 'className', 'rendering', 'constraint', 'source', 'color', 'backgroundColor', 'borderColor', 'textColor'], 'safe'],
             [['editable', 'startEditable', 'durationEditable', 'overlap'], 'boolean'],
         ];
     }

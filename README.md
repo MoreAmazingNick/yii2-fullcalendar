@@ -55,6 +55,26 @@ to the ```require``` section of your `composer.json` file.
 ?>
 ```
 
+
+#### An event can have extendedProps, groupId, and display attribute, see https://fullcalendar.io/docs/event-object
+```php
+<?php
+    new Event([
+        'id'               => uniqid(),
+        'title'            => 'Appointment #' . rand(1, 999),
+        'start'            => '2016-03-17T12:30:00',
+        'end'              => '2016-03-17T13:30:00',
+        'editable'         => true,
+        'startEditable'    => true,
+        'durationEditable' => true,
+        'extendedProps'=>['xyz'=>'123'],
+        'groupId'=>1,
+        'display'=>'auto'
+    ])
+
+?>
+'id', 'groupId', 'display'
+```
 ### Events can be added in three ways, PHP array, Javascript array or JSON feed
 
 #### PHP array
