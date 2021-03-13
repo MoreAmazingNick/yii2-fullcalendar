@@ -12,6 +12,10 @@
   "license": "MIT",
   "authors": [
     {
+      "name": "Edo Freriks",
+      "email": "edofre@gmail.com"
+    },
+    {
       "name": "Nicolas Schneider",
       "email": "dev@nicolas-schneider.at"
     }
