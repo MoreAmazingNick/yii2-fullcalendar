@@ -42,9 +42,9 @@ class Fullcalendar extends \yii\base\Widget
 	 * - month
 	 */
 	public $headerToolbar = [
-		'center' => 'title',
-		'end'   => 'prev,next, today',
-		'center'  => 'dayGridMonth ,timeGridWeek, dayGridDay',
+        'start' => 'title',
+        'end'   => 'prev, next, today',
+        'center'  => 'dayGridDay, timeGridWeek, dayGridMonth, listWeek'
 	];
 	/** @var string  Text to display while the calendar is loading */
 	public $loading = 'Please wait, calendar is loading';
