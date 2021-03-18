@@ -41,10 +41,10 @@ class Fullcalendar extends \yii\base\Widget
 	 * - agendaWeek
 	 * - month
 	 */
-	public $header = [
+	public $headerToolbar = [
 		'center' => 'title',
-		'left'   => 'prev,next, today',
-		'right'  => 'agendaDay,agendaWeek,month',
+		'end'   => 'prev,next, today',
+		'center'  => 'dayGridMonth ,timeGridWeek, dayGridDay',
 	];
 	/** @var string  Text to display while the calendar is loading */
 	public $loading = 'Please wait, calendar is loading';
@@ -93,7 +93,7 @@ class Fullcalendar extends \yii\base\Widget
         }
 
         //$assets->googleCalendar = $this->googleCalendar;
-        $this->clientOptions['header'] = $this->header;
+        $this->clientOptions['headerToolbar'] = $this->headerToolbar;
 
         $this->view->registerJs(implode("\n",
             [
